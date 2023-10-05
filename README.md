@@ -1,6 +1,6 @@
 # assessment_api_autotests
 
-Before running eny tests you need to add creds and globals folders to main folder.
+Before running any tests you need to add creds and globals folders to main folder.
 
 For running tests use command
 node index.js  "../feeds/feed.json"

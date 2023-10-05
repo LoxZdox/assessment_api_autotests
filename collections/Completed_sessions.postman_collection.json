@@ -1,0 +1,3332 @@
+{
+	"info": {
+		"_postman_id": "e4f33b1d-5898-45bd-a503-8c5d632e3d58",
+		"name": "Completed_sessions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29613235"
+	},
+	"item": [
+		{
+			"name": "Flow and getting neccessary variables",
+			"item": [
+				{
+					"name": "Получить id контент- менеджера",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('content_manager_id', pm.response.json().values[0].id);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "auth.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "content-type",
+								"value": "text/plain;charset=UTF-8"
+							},
+							{
+								"key": "origin",
+								"value": "https://oneid.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://oneid.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"{{content_manager_token}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://auth.unionetest.ru/api/v1/getuserdata",
+							"protocol": "https",
+							"host": [
+								"auth",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v1",
+								"getuserdata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить id юзер- орга",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('organisator_id', pm.response.json().values[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "auth.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "content-type",
+								"value": "text/plain;charset=UTF-8"
+							},
+							{
+								"key": "origin",
+								"value": "https://oneid.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://oneid.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"{{organisator_token}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://auth.unionetest.ru/api/v1/getuserdata",
+							"protocol": "https",
+							"host": [
+								"auth",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v1",
+								"getuserdata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить id тестируемого",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('tester_id', pm.response.json().values[0].id);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "auth.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "content-type",
+								"value": "text/plain;charset=UTF-8"
+							},
+							{
+								"key": "origin",
+								"value": "https://oneid.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://oneid.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"{{tester_token}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://auth.unionetest.ru/api/v1/getuserdata",
+							"protocol": "https",
+							"host": [
+								"auth",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v1",
+								"getuserdata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание организации",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('organisation_id', pm.response.json().id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"address\": \"gidropony1905@gmail.com\",\r\n  \"name\": \"Postman_test\",\r\n  \"desc\": \"Used for autotest, this should be deleted by now probably\",\r\n  \"email\": \"gidropony1905@gmail.com\",\r\n  \"phone\": \"9625568900\",\r\n  \"models\": [\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/organization",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"organization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавить юзер-орга в организацию",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "2196ce7e26cd03570e4c0171fc1479d49a01878bf679164ad204c5884f584412"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idOrg\": \"{{organisation_id}}\",\r\n    \"idUser\": \"{{organisator_id}}\"\r\n}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/organizations/user",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"organizations",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание модели курса",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('model_id', pm.response.json()._id);\r",
+									"pm.collectionVariables.set('model', JSON.stringify(pm.response.json()));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-models-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://models-assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://models-assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stage\": \"draft\",\r\n    \"display_results\": \"competency_only\",\r\n    \"stages\": [\r\n        {\r\n            \"name\": \"Postman_test\",\r\n            \"color\": \"#E26C3C\",\r\n            \"order\": 1\r\n        }\r\n    ],\r\n    \"common_params\": {\r\n        \"name\": \"Postman_test\",\r\n        \"level\": \"normal_level\",\r\n        \"count_of_attempts\": 2,\r\n        \"registration_type\": \"link\",\r\n        \"max_count_of_testers\": 10000,\r\n        \"certificates\": false\r\n    },\r\n    \"fields_display\": {\r\n        \"show_it\": false,\r\n        \"show_docs\": false,\r\n        \"show_description\": false,\r\n        \"show_academic_hours\": true,\r\n        \"show_academic_months\": true,\r\n        \"show_branch_industry\": false\r\n    },\r\n    \"test_options\": {\r\n        \"weight_questions\": [\r\n            {\r\n                \"type\": \"one\",\r\n                \"tag\": \"competency_level\",\r\n                \"count\": 1,\r\n                \"weight\": 1,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 10\r\n            }\r\n        ],\r\n        \"weight_levels\": [\r\n            {\r\n                \"level\": \"normal_level\",\r\n                \"weight\": 1\r\n            },\r\n            {\r\n                \"level\": \"advanced_level\",\r\n                \"weight\": 2\r\n            },\r\n            {\r\n                \"level\": \"expert_level\",\r\n                \"weight\": 3\r\n            }\r\n        ],\r\n        \"output\": \"by_one\",\r\n        \"test_type\": \"competency\"\r\n    },\r\n    \"levels\": [\r\n        {\r\n            \"type\": \"basic_level\",\r\n            \"from\": 0,\r\n            \"to\": 17\r\n        },\r\n        {\r\n            \"type\": \"normal_level\",\r\n            \"from\": 18,\r\n            \"to\": 100\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-models-assmnt.unionetest.ru/api/models/v2",
+							"protocol": "https",
+							"host": [
+								"api-models-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"models",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Публикация модели курса",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-models-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://models-assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://models-assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{model}}"
+						},
+						"url": {
+							"raw": "https://api-models-assmnt.unionetest.ru/api/models/publish-by-id?id={{model_id}}",
+							"protocol": "https",
+							"host": [
+								"api-models-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"models",
+								"publish-by-id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{model_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавление модели курса в организацию",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"models\": [\r\n        {\r\n            \"_id\": \"{{model_id}}\",\r\n            \"name\": \"Postman Test\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/organizations/{{organisation_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"organizations",
+								"{{organisation_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание блока компетенций",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('competency_block_id', pm.response.json()._id);\r",
+									"pm.collectionVariables.set('competency_block', JSON.stringify(pm.response.json()));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/competency",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"competency"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить id составляющих блока компетенций",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('sphere_id', pm.response.json()[\"spheres\"][0][\"_id\"]);\r",
+									"pm.collectionVariables.set('competency_id', pm.response.json()[\"spheres\"][0][\"competencies\"][0][\"_id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/competency/{{competency_block_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"competency",
+								"{{competency_block_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Переименовать блок компетенций",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\":\"Postman_test\"}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/block/update/{{competency_block_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"block",
+								"update",
+								"{{competency_block_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Переименовать сферу компетенций",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\":\"Postman_test\",\"block_id\": \"{{competency_block_id}}\"}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/sphera/update/{{sphere_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"sphera",
+								"update",
+								"{{sphere_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Переименовать компетенцию",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\":\"Postman_test\"}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/competency/update/{{competency_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"competency",
+								"update",
+								"{{competency_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Переименовать уровни компетенции",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"basic_level\": {\r\n        \"description\": \"Postman_test\",\r\n        \"question_ids\": []\r\n    },\r\n    \"normal_level\": {\r\n        \"description\": \"Postman_test\",\r\n        \"question_ids\": []\r\n    },\r\n    \"advanced_level\": {\r\n        \"description\": \"Postman_test\",\r\n        \"question_ids\": []\r\n    },\r\n    \"expert_level\": {\r\n        \"description\": \"Postman_test\",\r\n        \"question_ids\": []\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/competency/update/{{competency_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"competency",
+								"update",
+								"{{competency_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Опубликовать блок компетенций",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"competencyBlockId\":\"{{competency_block_id}}\"}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/competency/publish/{{competency_block_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"competency",
+								"publish",
+								"{{competency_block_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создать вопрос",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('question_id', pm.response.json()._id);\r",
+									"let answer_list = [];\r",
+									"var correct_answer_id = [];\r",
+									"for(let i=0; i<pm.response.json().answers.length; i++)\r",
+									"{\r",
+									"    answer_list.push(pm.response.json().answers[i]);\r",
+									"    answer_list[i][\"answer\"] = typeof(pm.response.json().answers[i].answer);\r",
+									"    if(pm.response.json().answers[i].is_correct){\r",
+									"        correct_answer_id.push(pm.response.json().answers[i]._id)\r",
+									"    }\r",
+									"    delete answer_list[i][\"answer\"];\r",
+									"    delete answer_list[i][\"is_correct\"];\r",
+									"    pm.collectionVariables.set('answer_list', JSON.stringify(answer_list));\r",
+									"    pm.collectionVariables.set('correct_answer_id', correct_answer_id);\r",
+									"}\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"question\": \"Postman_test\",\r\n    \"type\": \"one\",\r\n    \"stage\": \"published\",\r\n    \"desc\": \"Postman_test\",\r\n    \"pictures\": [],\r\n    \"competencies\": {\r\n        \"normal_level_id\": [\r\n            \"{{competency_id}}\"\r\n        ]\r\n    },\r\n    \"answers\": [\r\n        {\r\n            \"type\": \"text\",\r\n            \"pictures\": [],\r\n            \"answer\": \"<p>Postman_test_right</p>\",\r\n            \"is_correct\": true\r\n        },\r\n        {\r\n            \"type\": \"text\",\r\n            \"pictures\": [],\r\n            \"answer\": \"<p>Postman_test_wrong</p>\",\r\n            \"is_correct\": false\r\n        },\r\n        {\r\n            \"type\": \"text\",\r\n            \"pictures\": [],\r\n            \"answer\": \"<p>Postman_test_wrong</p>\",\r\n            \"is_correct\": false\r\n        },\r\n        {\r\n            \"type\": \"text\",\r\n            \"pictures\": [],\r\n            \"answer\": \"<p>Postman_test_wrong</p>\",\r\n            \"is_correct\": false\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/question",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"question"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создать курс",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('course_id', pm.response.json()._id);\r",
+									"pm.collectionVariables.set('course_stage_id', pm.response.json().stages[0]._id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "{{organisator_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Postman_test\",\r\n    \"academic\": {\r\n        \"hours\": 1,\r\n        \"month\": 1\r\n    },\r\n    \"model_id\": \"{{model_id}}\",\r\n    \"testing\": [\r\n        {\r\n            \"_id\": \"{{competency_id}}\",\r\n            \"level\": \"normal_level\"\r\n        }\r\n    ],\r\n    \"stages\": [\r\n        {\r\n            \"order\": 1,\r\n            \"start_date\": \"{{today}}\",\r\n            \"end_date\": \"{{tomorrow}}\",\r\n            \"is_procto\": false,\r\n            \"timezone\": 3\r\n        }\r\n    ],\r\n    \"stage\": \"moderate\",\r\n    \"author_id\": \"{{organisator_id}}\",\r\n    \"organization_id\": \"{{organisation_id}}\"\r\n}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/course",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Опубликовать курс",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-builderneo-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://moderate-assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://moderate-assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"course_id\": \"{{course_id}}\",\r\n    \"stage\": \"published\"\r\n}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/moderate/course/update",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"moderate",
+								"course",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Привязать тестируемого к курсу",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru,en;q=0.9,en-GB;q=0.8,en-US;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{tester_token}}"
+							},
+							{
+								"key": "origin",
+								"value": "https://testing-assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://testing-assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not/A)Brand\";v=\"99\", \"Microsoft Edge\";v=\"115\", \"Chromium\";v=\"115\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 Edg/115.0.1901.183"
+							}
+						],
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/course/{{course_id}}/assign-tester",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"course",
+								"{{course_id}}",
+								"assign-tester"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Сгенерировать тест и начать сессию",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{tester_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"course-id\": \"{{course_id}}\",\r\n  \"course-stage\": 1,\r\n  \"user-id\": \"{{tester_id}}\",\r\n  \"course-stage-id\": \"{{course_stage_id}}\"\r\n}"
+						},
+						"url": {
+							"raw": "{{Active_sessions_url}}/generate-session",
+							"host": [
+								"{{Active_sessions_url}}"
+							],
+							"path": [
+								"generate-session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Найти активную сессию пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "authorization",
+								"value": "{{tester_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"course-id\": \"{{course_id}}\",\r\n  \"course-stage\": 1,\r\n  \"user-id\": \"{{tester_id}}\"\r\n}"
+						},
+						"url": {
+							"raw": "{{Active_sessions_url}}/find-session",
+							"host": [
+								"{{Active_sessions_url}}"
+							],
+							"path": [
+								"find-session"
+							]
+						},
+						"description": "Если сессия была начата, то поле status примет значение true, а в поле ответа values возвращается документ этой сессии\nПоле ответа пользователя \"user-answer-id\" опционально. Если пользователь ответил на вопрос, оно существует, если нет, то нет\nЕсли пользователь впервые начинает проходить тест по данному курсу и этапу курса, то сессия найдена не будет. В поле errors будут содержаться ошибки, а поле status примет значение false"
+					},
+					"response": [
+						{
+							"name": "При положительном ответе: status = true, values = []model.Session, errors = []. При отрицательном ответе: status = false, values =[], errors = []errors.Error.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Токен пользователя",
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/find-session",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"find-session"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errors\": [\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    },\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    }\n  ],\n  \"need_fields\": \"<boolean>\",\n  \"status\": \"<boolean>\",\n  \"tm_req\": \"<string>\",\n  \"values\": [\n    {\n      \"course-id\": \"<string>\",\n      \"course-stage\": \"<integer>\",\n      \"questions\": [\n        {\n          \"competence-id\": \"<string>\",\n          \"pictures\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"question\": \"<string>\",\n          \"question-id\": \"<string>\",\n          \"type\": {\n            \"case\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"general\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"one\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plural\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"competence-id\": \"<string>\",\n          \"pictures\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"question\": \"<string>\",\n          \"question-id\": \"<string>\",\n          \"type\": {\n            \"case\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"general\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"one\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plural\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"user-id\": \"<string>\",\n      \"attempt\": \"<integer>\",\n      \"attempt-time\": \"<string>\",\n      \"test-duration\": \"<integer>\"\n    },\n    {\n      \"course-id\": \"<string>\",\n      \"course-stage\": \"<integer>\",\n      \"questions\": [\n        {\n          \"competence-id\": \"<string>\",\n          \"pictures\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"question\": \"<string>\",\n          \"question-id\": \"<string>\",\n          \"type\": {\n            \"case\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"general\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"one\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plural\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"competence-id\": \"<string>\",\n          \"pictures\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"question\": \"<string>\",\n          \"question-id\": \"<string>\",\n          \"type\": {\n            \"case\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"general\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"one\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plural\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"user-id\": \"<string>\",\n      \"attempt\": \"<integer>\",\n      \"attempt-time\": \"<string>\",\n      \"test-duration\": \"<integer>\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Получение информации о тестировании",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "authorization",
+								"value": "{{tester_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"course-id\": \"{{course_id}}\",\n  \"course-stage\": 1,\n  \"user-id\": \"{{tester_id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Active_sessions_url}}/get-test-info",
+							"host": [
+								"{{Active_sessions_url}}"
+							],
+							"path": [
+								"get-test-info"
+							]
+						},
+						"description": "Если пользователь не начал проходить тест по данному курсу и этапу курса или уже завершил его, то сессия найдена не будет."
+					},
+					"response": [
+						{
+							"name": "При положительном ответе: status = true, values = []model.TestInfo, errors = []. При отрицательном ответе: status = false, values =[], errors = []errors.Error.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Токен пользователя",
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/get-test-info",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"get-test-info"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errors\": [\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    },\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    }\n  ],\n  \"need_fields\": \"<boolean>\",\n  \"status\": \"<boolean>\",\n  \"tm_req\": \"<string>\",\n  \"values\": [\n    {\n      \"attempt\": \"<integer>\",\n      \"attempt-time\": \"<string>\",\n      \"course-id\": \"<string>\",\n      \"course-stage\": \"<integer>\",\n      \"test-duration\": \"<integer>\",\n      \"user-id\": \"<string>\"\n    },\n    {\n      \"attempt\": \"<integer>\",\n      \"attempt-time\": \"<string>\",\n      \"course-id\": \"<string>\",\n      \"course-stage\": \"<integer>\",\n      \"test-duration\": \"<integer>\",\n      \"user-id\": \"<string>\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Обновление сессии. Запись ответов на вопросы.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "authorization",
+								"value": "{{tester_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"answer-id\": \"63c548138c5593bedec6eb1f\",\n  \"course-id\": \"{{course_id}}\",\n  \"course-stage\": 1,\n  \"event-date-time\": \"{{today}}\",\n  \"mode\": \"open\",\n  \"question-id\": \"{{question_id}}\",\n  \"user-id\": \"{{tester_id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Active_sessions_url}}/upd-session",
+							"host": [
+								"{{Active_sessions_url}}"
+							],
+							"path": [
+								"upd-session"
+							]
+						},
+						"description": "Поле \"mode\" опционально. Оно необходимо для вопроса с множественным выбором ответа для удаления выбранного ответа (т.е. когда пользователь снимает галочку с ответа).\nДля этого используется ключевое слово \"delete\" в поле \"mode\". Когда пользователь ставит галочку на ответ, в использовании поля \"mode\" нет необходимости.\nПри прохождении теста по одному вопросу также используется \"mode\" = \"open\" при открытии вопроса (поле \"answer-id\" не используется)."
+					},
+					"response": [
+						{
+							"name": "При положительном ответе: status = true, errors = []. При отрицательном ответе: status = false, values =[], errors = []errors.Error.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Токен пользователя",
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"answer-id\": \"<string>\",\n  \"course-id\": \"<string>\",\n  \"course-stage\": \"<integer>\",\n  \"event-date-time\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"question-id\": \"<string>\",\n  \"user-id\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/upd-session",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"upd-session"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errors\": [\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    },\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    }\n  ],\n  \"need_fields\": \"<boolean>\",\n  \"status\": \"<boolean>\",\n  \"tm_req\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Завершение сессии",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "authorization",
+								"value": "{{tester_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"course-id\": \"{{course_id}}\",\n  \"course-stage\": 1,\n  \"user-id\": \"{{tester_id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Active_sessions_url}}/finish-session",
+							"host": [
+								"{{Active_sessions_url}}"
+							],
+							"path": [
+								"finish-session"
+							]
+						},
+						"description": "Завершение прохождения теста пользователем. Рассчитываются результаты."
+					},
+					"response": [
+						{
+							"name": "При положительном ответе: status = true, errors = []. При отрицательном ответе: status = false, values =[], errors = []errors.Error.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Токен пользователя",
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/finish-session",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"finish-session"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errors\": [\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    },\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    }\n  ],\n  \"need_fields\": \"<boolean>\",\n  \"status\": \"<boolean>\",\n  \"tm_req\": \"<string>\"\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let today = require('moment');",
+							"let tomorrow = today().add(1, 'days')",
+							"pm.collectionVariables.set('today', today());",
+							"pm.collectionVariables.set('tomorrow', tomorrow);"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Completed_sessions",
+			"item": [
+				{
+					"name": "Найти завершенную сессию пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", () => {\r",
+									"    pm.expect(pm.response.json().status).to.be.true;\r",
+									"});\r",
+									" \r",
+									"pm.test(\"Permission test for organisator\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('organisator_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.json().status).to.be.true;\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for tester\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('tester_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.json().status).to.be.true;\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"$id\": \"http://example.com/example.json\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"default\": {},\r",
+									"    \"required\": [\r",
+									"        \"status\",\r",
+									"        \"need_fields\",\r",
+									"        \"errors\",\r",
+									"        \"values\",\r",
+									"        \"tm_req\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"status\": {\r",
+									"            \"type\": \"boolean\",\r",
+									"            },\r",
+									"        \"need_fields\": {\r",
+									"            \"type\": \"boolean\",\r",
+									"        },\r",
+									"        \"errors\": {\r",
+									"            \"type\": \"array\",\r",
+									"        },\r",
+									"        \"values\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"tm_req\": {\r",
+									"            \"type\": \"string\"\r",
+									"        }\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500 ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500)\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"course-id\": \"{{course_id}}\",\n  \"course-stage\": 1,\n  \"user-id\": \"{{tester_id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Completed_sessions_url}}/get-passed-test",
+							"host": [
+								"{{Completed_sessions_url}}"
+							],
+							"path": [
+								"get-passed-test"
+							]
+						},
+						"description": "Если при обработке запроса были что-то пошло не так, то в поле errors будут содержаться ошибки."
+					},
+					"response": [
+						{
+							"name": "При положительном ответе: status = true, values = []model.Session, errors = []. При отрицательном ответе: status = false, values =[], errors = []errors.Error.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Токен пользователя",
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/get-passed-test",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"get-passed-test"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errors\": [\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    },\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    }\n  ],\n  \"need_fields\": \"<boolean>\",\n  \"status\": \"<boolean>\",\n  \"tm_req\": \"<string>\",\n  \"values\": [\n    {\n      \"course-id\": \"<string>\",\n      \"course-stage\": \"<integer>\",\n      \"questions\": [\n        {\n          \"competence-id\": \"<string>\",\n          \"pictures\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"question\": \"<string>\",\n          \"question-id\": \"<string>\",\n          \"type\": {\n            \"case\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"general\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"one\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plural\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"competence-id\": \"<string>\",\n          \"pictures\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"question\": \"<string>\",\n          \"question-id\": \"<string>\",\n          \"type\": {\n            \"case\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"general\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"one\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plural\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"user-id\": \"<string>\",\n      \"attempt\": \"<integer>\",\n      \"attempt-time\": \"<string>\",\n      \"test-duration\": \"<integer>\"\n    },\n    {\n      \"course-id\": \"<string>\",\n      \"course-stage\": \"<integer>\",\n      \"questions\": [\n        {\n          \"competence-id\": \"<string>\",\n          \"pictures\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"question\": \"<string>\",\n          \"question-id\": \"<string>\",\n          \"type\": {\n            \"case\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"general\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"one\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plural\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"competence-id\": \"<string>\",\n          \"pictures\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"question\": \"<string>\",\n          \"question-id\": \"<string>\",\n          \"type\": {\n            \"case\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"general\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"one\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"plural\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"user-id\": \"<string>\",\n      \"attempt\": \"<integer>\",\n      \"attempt-time\": \"<string>\",\n      \"test-duration\": \"<integer>\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Получение результатов пользователей по этапу курса",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", () => {\r",
+									"    pm.expect(pm.response.json().status).to.be.true;\r",
+									"});\r",
+									" \r",
+									"pm.test(\"Permission test for organisator\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('organisator_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.json().status).to.be.true;\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for tester\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('tester_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.json().status).to.be.true;\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"$id\": \"http://example.com/example.json\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"default\": {},\r",
+									"    \"required\": [\r",
+									"        \"status\",\r",
+									"        \"need_fields\",\r",
+									"        \"errors\",\r",
+									"        \"values\",\r",
+									"        \"tm_req\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"status\": {\r",
+									"            \"type\": \"boolean\",\r",
+									"            },\r",
+									"        \"need_fields\": {\r",
+									"            \"type\": \"boolean\",\r",
+									"        },\r",
+									"        \"errors\": {\r",
+									"            \"type\": \"array\",\r",
+									"        },\r",
+									"        \"values\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"tm_req\": {\r",
+									"            \"type\": \"string\"\r",
+									"        }\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema response is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500 ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500)\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"course-id\": \"{{course_id}}\",\n  \"course-stage\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Completed_sessions_url}}/get-course-results",
+							"host": [
+								"{{Completed_sessions_url}}"
+							],
+							"path": [
+								"get-course-results"
+							]
+						},
+						"description": "Если при обработке запроса были что-то пошло не так, то в поле errors будут содержаться ошибки, а поле status примет значение false."
+					},
+					"response": [
+						{
+							"name": "При положительном ответе: status = true, values = []model.CompResult, errors = []. При отрицательном ответе: status = false, values =[], errors = []errors.Error.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Токен пользователя",
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"course-id\": \"<string>\",\n  \"course-stage\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/get-course-results",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"get-course-results"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errors\": [\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    },\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    }\n  ],\n  \"need_fields\": \"<boolean>\",\n  \"status\": \"<boolean>\",\n  \"tm_req\": \"<string>\",\n  \"values\": [\n    {\n      \"advanced\": \"<number>\",\n      \"competence-id\": \"<string>\",\n      \"course-id\": \"<string>\",\n      \"course-stage\": \"<integer>\",\n      \"event-date-time\": \"<string>\",\n      \"expert\": \"<number>\",\n      \"normal\": \"<number>\",\n      \"total\": \"<number>\",\n      \"user-id\": \"<string>\"\n    },\n    {\n      \"advanced\": \"<number>\",\n      \"competence-id\": \"<string>\",\n      \"course-id\": \"<string>\",\n      \"course-stage\": \"<integer>\",\n      \"event-date-time\": \"<string>\",\n      \"expert\": \"<number>\",\n      \"normal\": \"<number>\",\n      \"total\": \"<number>\",\n      \"user-id\": \"<string>\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Получение информации об ответах",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", () => {\r",
+									"    pm.expect(pm.response.json().status).to.be.true;\r",
+									"});\r",
+									" \r",
+									"pm.test(\"Permission test for organisator\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('organisator_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.json().status).to.be.true;\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for tester\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('tester_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.json().status).to.be.true;\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"$id\": \"http://example.com/example.json\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"default\": {},\r",
+									"    \"required\": [\r",
+									"        \"status\",\r",
+									"        \"need_fields\",\r",
+									"        \"errors\",\r",
+									"        \"values\",\r",
+									"        \"tm_req\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"status\": {\r",
+									"            \"type\": \"boolean\",\r",
+									"            },\r",
+									"        \"need_fields\": {\r",
+									"            \"type\": \"boolean\",\r",
+									"        },\r",
+									"        \"errors\": {\r",
+									"            \"type\": \"array\",\r",
+									"        },\r",
+									"        \"values\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"tm_req\": {\r",
+									"            \"type\": \"string\"\r",
+									"        }\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema response is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500 ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500)\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"limit\": 20,\n  \"offset\": 0,\n  \"page\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Completed_sessions_url}}/get-questions-info",
+							"host": [
+								"{{Completed_sessions_url}}"
+							],
+							"path": [
+								"get-questions-info"
+							]
+						},
+						"description": "Если при обработке запроса что-то пошло не так, то в поле errors будут содержаться ошибки, а поле status примет значение false."
+					},
+					"response": [
+						{
+							"name": "При положительном ответе: status = true, values = []model.GetQuestionsInfo, errors = []. При отрицательном ответе: status = false, values =[], errors = []errors.Error.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Токен пользователя",
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"limit\": 20,\n  \"offset\": \"<integer>\",\n  \"page\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/get-questions-info",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"get-questions-info"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errors\": [\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    },\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    }\n  ],\n  \"need_fields\": \"<boolean>\",\n  \"status\": \"<boolean>\",\n  \"tm_req\": \"<string>\",\n  \"values\": [\n    {\n      \"count\": \"<integer>\",\n      \"questions\": [\n        {\n          \"attempt-time\": \"<string>\",\n          \"competency-id\": \"<string>\",\n          \"course-id\": \"<string>\",\n          \"course-stage\": \"<integer>\",\n          \"finish-time\": \"<string>\",\n          \"is-correct\": \"<boolean>\",\n          \"level\": \"<string>\",\n          \"question-id\": \"<string>\",\n          \"question-text\": \"<string>\",\n          \"start-time\": \"<string>\",\n          \"type\": \"<string>\",\n          \"user-id\": \"<string>\"\n        },\n        {\n          \"attempt-time\": \"<string>\",\n          \"competency-id\": \"<string>\",\n          \"course-id\": \"<string>\",\n          \"course-stage\": \"<integer>\",\n          \"finish-time\": \"<string>\",\n          \"is-correct\": \"<boolean>\",\n          \"level\": \"<string>\",\n          \"question-id\": \"<string>\",\n          \"question-text\": \"<string>\",\n          \"start-time\": \"<string>\",\n          \"type\": \"<string>\",\n          \"user-id\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"count\": \"<integer>\",\n      \"questions\": [\n        {\n          \"attempt-time\": \"<string>\",\n          \"competency-id\": \"<string>\",\n          \"course-id\": \"<string>\",\n          \"course-stage\": \"<integer>\",\n          \"finish-time\": \"<string>\",\n          \"is-correct\": \"<boolean>\",\n          \"level\": \"<string>\",\n          \"question-id\": \"<string>\",\n          \"question-text\": \"<string>\",\n          \"start-time\": \"<string>\",\n          \"type\": \"<string>\",\n          \"user-id\": \"<string>\"\n        },\n        {\n          \"attempt-time\": \"<string>\",\n          \"competency-id\": \"<string>\",\n          \"course-id\": \"<string>\",\n          \"course-stage\": \"<integer>\",\n          \"finish-time\": \"<string>\",\n          \"is-correct\": \"<boolean>\",\n          \"level\": \"<string>\",\n          \"question-id\": \"<string>\",\n          \"question-text\": \"<string>\",\n          \"start-time\": \"<string>\",\n          \"type\": \"<string>\",\n          \"user-id\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Получение информации о прошедших тестах",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", () => {\r",
+									"    pm.expect(pm.response.json().status).to.be.true;\r",
+									"});\r",
+									" \r",
+									"pm.test(\"Permission test for organisator\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('organisator_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.json().status).to.be.true;\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for tester\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('tester_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.json().status).to.be.true;\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"$id\": \"http://example.com/example.json\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"default\": {},\r",
+									"    \"required\": [\r",
+									"        \"status\",\r",
+									"        \"need_fields\",\r",
+									"        \"errors\",\r",
+									"        \"values\",\r",
+									"        \"tm_req\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"status\": {\r",
+									"            \"type\": \"boolean\",\r",
+									"            },\r",
+									"        \"need_fields\": {\r",
+									"            \"type\": \"boolean\",\r",
+									"        },\r",
+									"        \"errors\": {\r",
+									"            \"type\": \"array\",\r",
+									"        },\r",
+									"        \"values\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"tm_req\": {\r",
+									"            \"type\": \"string\"\r",
+									"        }\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema response is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500 ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500)\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"course-id\": \"{{course_id}}\",\n    \"course-stage\": 1,\n    \"user-id\": \"{{tester_id}}\"\n  },\n  {\n    \"course-id\": \"63bbbe21699a0d506f976345\",\n    \"course-stage\": 1,\n    \"user-id\": \"63c548138c5593bedec6eb1f\"\n  }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Completed_sessions_url}}/get-tests-info",
+							"host": [
+								"{{Completed_sessions_url}}"
+							],
+							"path": [
+								"get-tests-info"
+							]
+						},
+						"description": "Выдает информацию о пройденных тестах этих пользователей.\nЕсли обработка запроса прошла успешно, то поле status примет значение true, а в поле ответа values возвращается список информаций по прошедшим тестам.\nЕсли при обработке запроса были что-то пошло не так, то в поле errors будут содержаться ошибки, а поле status примет значение false."
+					},
+					"response": [
+						{
+							"name": "При положительном ответе: status = true, values = []model.TestInfo, errors = []. При отрицательном ответе: status = false, values =[], errors = []errors.Error.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Токен пользователя",
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"course-id\": \"<string>\",\n    \"course-stage\": \"<integer>\",\n    \"user-id\": \"<string>\"\n  },\n  {\n    \"course-id\": \"<string>\",\n    \"course-stage\": \"<integer>\",\n    \"user-id\": \"<string>\"\n  }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/get-tests-info",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"get-tests-info"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errors\": [\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    },\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    }\n  ],\n  \"need_fields\": \"<boolean>\",\n  \"status\": \"<boolean>\",\n  \"tm_req\": \"<string>\",\n  \"values\": [\n    {\n      \"attempt\": \"<integer>\",\n      \"attempt-time\": \"<string>\",\n      \"course-id\": \"<string>\",\n      \"course-stage\": \"<integer>\",\n      \"test-duration\": \"<integer>\",\n      \"user-id\": \"<string>\"\n    },\n    {\n      \"attempt\": \"<integer>\",\n      \"attempt-time\": \"<string>\",\n      \"course-id\": \"<string>\",\n      \"course-stage\": \"<integer>\",\n      \"test-duration\": \"<integer>\",\n      \"user-id\": \"<string>\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Получение информации о тестах пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", () => {\r",
+									"    pm.expect(pm.response.json().status).to.be.true;\r",
+									"});\r",
+									" \r",
+									"pm.test(\"Permission test for organisator\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('organisator_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.json().status).to.be.true;\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for tester\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('tester_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.json().status).to.be.true;\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Schema response is valid\", () => {\r",
+									"    let jsonData = pm.response.json()\r",
+									"    let Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"$id\": \"http://example.com/example.json\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"default\": {},\r",
+									"    \"required\": [\r",
+									"        \"status\",\r",
+									"        \"need_fields\",\r",
+									"        \"errors\",\r",
+									"        \"values\",\r",
+									"        \"tm_req\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"status\": {\r",
+									"            \"type\": \"boolean\",\r",
+									"            },\r",
+									"        \"need_fields\": {\r",
+									"            \"type\": \"boolean\",\r",
+									"        },\r",
+									"        \"errors\": {\r",
+									"            \"type\": \"array\",\r",
+									"        },\r",
+									"        \"values\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"tm_req\": {\r",
+									"            \"type\": \"string\"\r",
+									"        }\r",
+									"    }\r",
+									"    }\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500 ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  \"{{tester_id}}\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Completed_sessions_url}}/get-tests-info-by-users",
+							"host": [
+								"{{Completed_sessions_url}}"
+							],
+							"path": [
+								"get-tests-info-by-users"
+							]
+						},
+						"description": "Принимает список id пользователей.\nЕсли при обработке запроса что-то пошло не так, то в поле errors будут содержаться ошибки, а поле status примет значение false."
+					},
+					"response": [
+						{
+							"name": "При положительном ответе: status = true, values = []model.TestInfo, errors = []. При отрицательном ответе: status = false, values =[], errors = []errors.Error.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Токен пользователя",
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/get-tests-info-by-users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"get-tests-info-by-users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errors\": [\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    },\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    }\n  ],\n  \"need_fields\": \"<boolean>\",\n  \"status\": \"<boolean>\",\n  \"tm_req\": \"<string>\",\n  \"values\": [\n    {\n      \"attempt\": \"<integer>\",\n      \"attempt-time\": \"<string>\",\n      \"course-id\": \"<string>\",\n      \"course-stage\": \"<integer>\",\n      \"test-duration\": \"<integer>\",\n      \"user-id\": \"<string>\"\n    },\n    {\n      \"attempt\": \"<integer>\",\n      \"attempt-time\": \"<string>\",\n      \"course-id\": \"<string>\",\n      \"course-stage\": \"<integer>\",\n      \"test-duration\": \"<integer>\",\n      \"user-id\": \"<string>\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Получение результатов пользователя по курсу (для тестируемого)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for tester\", () => {\r",
+									"    pm.expect(pm.response.json().status, \"Permission test for tester failed\").to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for content_manager\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('content_manager_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        if(!response.json().status){\r",
+									"            console.log(response.json())\r",
+									"            pm.expect(response.json().status, \"Permission test for content-manager failed\").to.be.true;\r",
+									"        }\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('organisator_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        if(!response.json().status){\r",
+									"            console.log(response.json())\r",
+									"            pm.expect(response.json().status, \"Permission test for organisator failed\").to.be.true;\r",
+									"        }\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"$id\": \"http://example.com/example.json\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"default\": {},\r",
+									"    \"required\": [\r",
+									"        \"status\",\r",
+									"        \"need_fields\",\r",
+									"        \"errors\",\r",
+									"        \"values\",\r",
+									"        \"tm_req\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"status\": {\r",
+									"            \"type\": \"boolean\",\r",
+									"            },\r",
+									"        \"need_fields\": {\r",
+									"            \"type\": \"boolean\",\r",
+									"        },\r",
+									"        \"errors\": {\r",
+									"            \"type\": \"array\",\r",
+									"        },\r",
+									"        \"values\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"tm_req\": {\r",
+									"            \"type\": \"string\"\r",
+									"        }\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema response is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500 ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{tester_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"course-id\": \"{{course_id}}\",\n  \"user-id\": \"{{tester_id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Completed_sessions_url}}/get-user-results",
+							"host": [
+								"{{Completed_sessions_url}}"
+							],
+							"path": [
+								"get-user-results"
+							]
+						},
+						"description": "Если при обработке запроса были что-то пошло не так, то в поле errors будут содержаться ошибки."
+					},
+					"response": [
+						{
+							"name": "При положительном ответе: status = true, values = []model.CompResult, errors = []. При отрицательном ответе: status = false, values =[], errors = []errors.Error.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Токен пользователя",
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"course-id\": \"<string>\",\n  \"user-id\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/get-user-results",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"get-user-results"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errors\": [\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    },\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    }\n  ],\n  \"need_fields\": \"<boolean>\",\n  \"status\": \"<boolean>\",\n  \"tm_req\": \"<string>\",\n  \"values\": [\n    {\n      \"advanced\": \"<number>\",\n      \"competence-id\": \"<string>\",\n      \"course-id\": \"<string>\",\n      \"course-stage\": \"<integer>\",\n      \"event-date-time\": \"<string>\",\n      \"expert\": \"<number>\",\n      \"normal\": \"<number>\",\n      \"total\": \"<number>\",\n      \"user-id\": \"<string>\"\n    },\n    {\n      \"advanced\": \"<number>\",\n      \"competence-id\": \"<string>\",\n      \"course-id\": \"<string>\",\n      \"course-stage\": \"<integer>\",\n      \"event-date-time\": \"<string>\",\n      \"expert\": \"<number>\",\n      \"normal\": \"<number>\",\n      \"total\": \"<number>\",\n      \"user-id\": \"<string>\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Получение результатов пользователей по курсу (не для тестируемого)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", () => {\r",
+									"    pm.expect(pm.response.json().status, \"Permission test for content-manager failed\").to.be.true;\r",
+									"});\r",
+									" \r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('organisator_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        if(!response.json().status){\r",
+									"            console.log(response.json())\r",
+									"            pm.expect(response.json().status, \"Permission test for organisator failed\").to.be.true;\r",
+									"        }\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for tester\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('tester_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.json().status, \"Permission test for tester failed\").to.be.false;\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"$id\": \"http://example.com/example.json\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"default\": {},\r",
+									"    \"required\": [\r",
+									"        \"status\",\r",
+									"        \"need_fields\",\r",
+									"        \"errors\",\r",
+									"        \"values\",\r",
+									"        \"tm_req\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"status\": {\r",
+									"            \"type\": \"boolean\",\r",
+									"            },\r",
+									"        \"need_fields\": {\r",
+									"            \"type\": \"boolean\",\r",
+									"        },\r",
+									"        \"errors\": {\r",
+									"            \"type\": \"array\",\r",
+									"        },\r",
+									"        \"values\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"tm_req\": {\r",
+									"            \"type\": \"string\"\r",
+									"        }\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema response is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500 ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"course-id\": \"{{course_id}}\",\n        \"user-id\": \"{{tester_id}}\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Completed_sessions_url}}/get-users-results",
+							"host": [
+								"{{Completed_sessions_url}}"
+							],
+							"path": [
+								"get-users-results"
+							]
+						},
+						"description": "Если при обработке запроса были что-то пошло не так, то в поле errors будут содержаться ошибки."
+					},
+					"response": [
+						{
+							"name": "При положительном ответе: status = true, values = []model.CompResult, errors = []. При отрицательном ответе: status = false, values =[], errors = []errors.Error.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "(Required) Токен пользователя",
+										"key": "Authorization",
+										"value": "<string>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n  {\n    \"course-id\": \"<string>\",\n    \"user-id\": \"<string>\"\n  },\n  {\n    \"course-id\": \"<string>\",\n    \"user-id\": \"<string>\"\n  }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/get-users-results",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"get-users-results"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errors\": [\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    },\n    {\n      \"key\": \"<integer>\",\n      \"msg\": \"<string>\"\n    }\n  ],\n  \"need_fields\": \"<boolean>\",\n  \"status\": \"<boolean>\",\n  \"tm_req\": \"<string>\",\n  \"values\": [\n    {\n      \"advanced\": \"<number>\",\n      \"competence-id\": \"<string>\",\n      \"course-id\": \"<string>\",\n      \"course-stage\": \"<integer>\",\n      \"event-date-time\": \"<string>\",\n      \"expert\": \"<number>\",\n      \"normal\": \"<number>\",\n      \"total\": \"<number>\",\n      \"user-id\": \"<string>\"\n    },\n    {\n      \"advanced\": \"<number>\",\n      \"competence-id\": \"<string>\",\n      \"course-id\": \"<string>\",\n      \"course-stage\": \"<integer>\",\n      \"event-date-time\": \"<string>\",\n      \"expert\": \"<number>\",\n      \"normal\": \"<number>\",\n      \"total\": \"<number>\",\n      \"user-id\": \"<string>\"\n    }\n  ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Active_sessions_url",
+			"value": "http://10.62.10.75:30031",
+			"type": "string"
+		},
+		{
+			"key": "Completed_sessions_url",
+			"value": "http://10.62.10.75:30030",
+			"type": "string"
+		},
+		{
+			"key": "today",
+			"value": ""
+		},
+		{
+			"key": "tomorrow",
+			"value": ""
+		},
+		{
+			"key": "content_manager_id",
+			"value": ""
+		},
+		{
+			"key": "organisator_id",
+			"value": ""
+		},
+		{
+			"key": "tester_id",
+			"value": ""
+		},
+		{
+			"key": "organisation_id",
+			"value": ""
+		},
+		{
+			"key": "model_id",
+			"value": ""
+		},
+		{
+			"key": "model",
+			"value": ""
+		},
+		{
+			"key": "competency_block_id",
+			"value": ""
+		},
+		{
+			"key": "competency_block",
+			"value": ""
+		},
+		{
+			"key": "sphere_id",
+			"value": ""
+		},
+		{
+			"key": "competency_id",
+			"value": ""
+		},
+		{
+			"key": "question_id",
+			"value": ""
+		},
+		{
+			"key": "answer_list",
+			"value": ""
+		},
+		{
+			"key": "correct_answer_id",
+			"value": ""
+		},
+		{
+			"key": "course_id",
+			"value": ""
+		},
+		{
+			"key": "course_stage_id",
+			"value": ""
+		}
+	]
+}

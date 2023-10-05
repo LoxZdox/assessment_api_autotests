@@ -1,0 +1,68 @@
+{
+    "collections":[
+        {
+            "collection": "../collections/Active_sessions.postman_collection.json"
+        },
+        {
+            "collection": "../collections/Blocks.postman_collection.json"
+
+        },
+        {
+            "collection": "../collections/Competencies.postman_collection.json"
+
+        },
+        {
+            "collection": "../collections/Completed_sessions.postman_collection.json"
+
+        },
+        {
+            "collection": "../collections/Courses (Moderation swagger).postman_collection.json"
+
+        },
+        {
+            "collection": "../collections/Default (Certificates (Buildernext swagger)).postman_collection.json"
+
+        },
+        {
+            "collection": "../collections/Models (Buldernext swagger).postman_collection.json"
+
+        },
+        {
+            "collection": "../collections/Models (Model Service swagger).postman_collection.json"
+
+        },
+        {
+            "collection": "../collections/Organisations.postman_collection.json"
+
+        },
+        {
+            "collection": "../collections/Questions.postman_collection.json"
+
+        },
+        {
+            "collection": "../collections/Spheres.postman_collection.json"
+
+        },
+        {
+            "collection": "../collections/Support.postman_collection.json"
+
+        },
+        {
+            "collection": "../collections/Tags.postman_collection.json"
+
+        },
+        {
+            "collection": "../collections/Upload (Buildernext swagger).postman_collection.json"
+
+        },
+        {
+            "collection": "../collections/Upload (Buildernext swagger).postman_collection.json"
+
+        },
+        {
+            "collection": "../collections/Users.postman_collection.json"
+
+        }
+        
+    ]
+}

@@ -1,0 +1,1778 @@
+{
+	"info": {
+		"_postman_id": "81d5742d-9a2e-4b8a-9bdb-2b131ab67900",
+		"name": "Models (Model Service swagger)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29613235"
+	},
+	"item": [
+		{
+			"name": "Flow and getting neccessary variables",
+			"item": [
+				{
+					"name": "Создание организации",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('organisation_id', pm.response.json().id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"address\": \"gidropony1905@gmail.com\",\r\n  \"name\": \"Postman_test\",\r\n  \"desc\": \"Used for autotest, this should be deleted by now probably\",\r\n  \"email\": \"gidropony1905@gmail.com\",\r\n  \"phone\": \"9625568900\",\r\n  \"models\": [\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/organization",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"organization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание модели курса (по компетенциям)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('model_id', pm.response.json()._id);\r",
+									"pm.collectionVariables.set('model', JSON.stringify(pm.response.json()));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-models-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://models-assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://models-assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stage\": \"draft\",\r\n    \"display_results\": \"competency_only\",\r\n    \"stages\": [\r\n        {\r\n            \"name\": \"Postman_test\",\r\n            \"color\": \"#E26C3C\",\r\n            \"order\": 1\r\n        }\r\n    ],\r\n    \"common_params\": {\r\n        \"name\": \"Postman_test\",\r\n        \"level\": \"normal_level\",\r\n        \"count_of_attempts\": 2,\r\n        \"registration_type\": \"link\",\r\n        \"max_count_of_testers\": 10000,\r\n        \"certificates\": false\r\n    },\r\n    \"fields_display\": {\r\n        \"show_it\": false,\r\n        \"show_docs\": false,\r\n        \"show_description\": false,\r\n        \"show_academic_hours\": true,\r\n        \"show_academic_months\": true,\r\n        \"show_branch_industry\": false\r\n    },\r\n    \"test_options\": {\r\n        \"weight_questions\": [\r\n            {\r\n                \"type\": \"one\",\r\n                \"tag\": \"competency_level\",\r\n                \"count\": 1,\r\n                \"weight\": 1,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 10\r\n            }\r\n        ],\r\n        \"weight_levels\": [\r\n            {\r\n                \"level\": \"normal_level\",\r\n                \"weight\": 1\r\n            },\r\n            {\r\n                \"level\": \"advanced_level\",\r\n                \"weight\": 2\r\n            },\r\n            {\r\n                \"level\": \"expert_level\",\r\n                \"weight\": 3\r\n            }\r\n        ],\r\n        \"output\": \"by_one\",\r\n        \"test_type\": \"competency\"\r\n    },\r\n    \"levels\": [\r\n        {\r\n            \"type\": \"basic_level\",\r\n            \"from\": 0,\r\n            \"to\": 17\r\n        },\r\n        {\r\n            \"type\": \"normal_level\",\r\n            \"from\": 18,\r\n            \"to\": 100\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-models-assmnt.unionetest.ru/api/models/v2",
+							"protocol": "https",
+							"host": [
+								"api-models-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"models",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание модели курса (по сферам)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('model_id_sphere', pm.response.json()._id);\r",
+									"pm.collectionVariables.set('model_sphere', JSON.stringify(pm.response.json()));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-models-assmnt.unionetest.ru",
+								"disabled": true
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+								"disabled": true
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://models-assessment.unionetest.ru",
+								"disabled": true
+							},
+							{
+								"key": "referer",
+								"value": "https://models-assessment.unionetest.ru/",
+								"disabled": true
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\"",
+								"disabled": true
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0",
+								"disabled": true
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\"",
+								"disabled": true
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty",
+								"disabled": true
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors",
+								"disabled": true
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site",
+								"disabled": true
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stage\": \"draft\",\r\n    \"display_results\": \"sphere_only\",\r\n    \"stages\": [\r\n        {\r\n            \"name\": \"Postman_test\",\r\n            \"color\": \"#CAD753\",\r\n            \"order\": 1\r\n        }\r\n    ],\r\n    \"common_params\": {\r\n        \"name\": \"Postman_test\",\r\n        \"level\": \"advanced_level\",\r\n        \"count_of_attempts\": 2,\r\n        \"registration_type\": \"link\",\r\n        \"max_count_of_testers\": 10000,\r\n        \"certificates\": true\r\n    },\r\n    \"fields_display\": {\r\n        \"show_it\": true,\r\n        \"show_docs\": true,\r\n        \"show_description\": true,\r\n        \"show_academic_hours\": true,\r\n        \"show_academic_months\": true,\r\n        \"show_branch_industry\": true\r\n    },\r\n    \"test_options\": {\r\n        \"weight_questions\": [\r\n            {\r\n                \"type\": \"one\",\r\n                \"tag\": \"sphere\",\r\n                \"count\": 2,\r\n                \"weight\": 1,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            },\r\n            {\r\n                \"type\": \"case\",\r\n                \"tag\": \"sphere\",\r\n                \"count\": 2,\r\n                \"weight\": 2,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            },\r\n            {\r\n                \"type\": \"plural\",\r\n                \"tag\": \"sphere\",\r\n                \"count\": 2,\r\n                \"weight\": 1,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 10\r\n            },\r\n            {\r\n                \"type\": \"matrix\",\r\n                \"tag\": \"sphere\",\r\n                \"count\": 2,\r\n                \"weight\": 2,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            },\r\n            {\r\n                \"type\": \"tree\",\r\n                \"tag\": \"sphere\",\r\n                \"count\": 2,\r\n                \"weight\": 2,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            }\r\n        ],\r\n        \"weight_levels\": [\r\n            {\r\n                \"level\": \"normal_level\",\r\n                \"weight\": 1\r\n            },\r\n            {\r\n                \"level\": \"advanced_level\",\r\n                \"weight\": 2\r\n            },\r\n            {\r\n                \"level\": \"expert_level\",\r\n                \"weight\": 3\r\n            }\r\n        ],\r\n        \"output\": \"by_one\",\r\n        \"test_type\": \"sphere\"\r\n    },\r\n    \"levels\": [\r\n        {\r\n            \"type\": \"basic_level\",\r\n            \"from\": 0,\r\n            \"to\": 17\r\n        },\r\n        {\r\n            \"type\": \"normal_level\",\r\n            \"from\": 18,\r\n            \"to\": 43\r\n        },\r\n        {\r\n            \"type\": \"advanced_level\",\r\n            \"from\": 44,\r\n            \"to\": 100\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-models-assmnt.unionetest.ru/api/models/v2",
+							"protocol": "https",
+							"host": [
+								"api-models-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"models",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание модели курса (по сферам и компетенциям)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('model_id_sphere_competency', pm.response.json()._id);\r",
+									"pm.collectionVariables.set('model_sphere_competency', JSON.stringify(pm.response.json()));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-models-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://models-assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://models-assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stage\": \"draft\",\r\n    \"display_results\": \"competency_sphere\",\r\n    \"stages\": [\r\n        {\r\n            \"name\": \"111\",\r\n            \"color\": \"#0071CE\",\r\n            \"order\": 1\r\n        },\r\n        {\r\n            \"name\": \"222\",\r\n            \"color\": \"#07B4CF\",\r\n            \"order\": 2\r\n        },\r\n        {\r\n            \"name\": \"333\",\r\n            \"color\": \"#CAD753\",\r\n            \"order\": 3\r\n        }\r\n    ],\r\n    \"common_params\": {\r\n        \"name\": \"Postman_test\",\r\n        \"level\": \"expert_level\",\r\n        \"count_of_attempts\": 2,\r\n        \"registration_type\": \"link\",\r\n        \"max_count_of_testers\": 10000,\r\n        \"certificates\": true\r\n    },\r\n    \"fields_display\": {\r\n        \"show_it\": true,\r\n        \"show_docs\": true,\r\n        \"show_description\": true,\r\n        \"show_academic_hours\": true,\r\n        \"show_academic_months\": true,\r\n        \"show_branch_industry\": true\r\n    },\r\n    \"test_options\": {\r\n        \"weight_questions\": [\r\n            {\r\n                \"type\": \"one\",\r\n                \"tag\": \"competency_level\",\r\n                \"count\": 2,\r\n                \"weight\": 1,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            },\r\n            {\r\n                \"type\": \"case\",\r\n                \"tag\": \"competency\",\r\n                \"count\": 2,\r\n                \"weight\": 2,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            },\r\n            {\r\n                \"type\": \"plural\",\r\n                \"tag\": \"competency\",\r\n                \"count\": 2,\r\n                \"weight\": 1,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 10\r\n            },\r\n            {\r\n                \"type\": \"matrix\",\r\n                \"tag\": \"competency\",\r\n                \"count\": 2,\r\n                \"weight\": 2,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            },\r\n            {\r\n                \"type\": \"tree\",\r\n                \"tag\": \"competency\",\r\n                \"count\": 2,\r\n                \"weight\": 2,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            }\r\n        ],\r\n        \"weight_levels\": [\r\n            {\r\n                \"level\": \"normal_level\",\r\n                \"weight\": 1\r\n            },\r\n            {\r\n                \"level\": \"advanced_level\",\r\n                \"weight\": 2\r\n            },\r\n            {\r\n                \"level\": \"expert_level\",\r\n                \"weight\": 3\r\n            }\r\n        ],\r\n        \"output\": \"by_one\",\r\n        \"test_type\": \"competency\"\r\n    },\r\n    \"levels\": [\r\n        {\r\n            \"type\": \"basic_level\",\r\n            \"from\": 0,\r\n            \"to\": 17\r\n        },\r\n        {\r\n            \"type\": \"normal_level\",\r\n            \"from\": 18,\r\n            \"to\": 43\r\n        },\r\n        {\r\n            \"type\": \"advanced_level\",\r\n            \"from\": 44,\r\n            \"to\": 79\r\n        },\r\n        {\r\n            \"type\": \"expert_level\",\r\n            \"from\": 80,\r\n            \"to\": 100\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://api-models-assmnt.unionetest.ru/api/models/v2",
+							"protocol": "https",
+							"host": [
+								"api-models-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"models",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавление модели курса в организацию",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Adding competency model to organisation\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"models\": [\r\n        {\r\n            \"_id\": \"{{model_id}}\",\r\n            \"name\": \"Postman Test\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/organizations/{{organisation_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"organizations",
+								"{{organisation_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавление модели курса (по сферам) в организацию",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Adding sphere model to organisation\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"models\": [\r\n        {\r\n            \"_id\": \"{{model_id_sphere}}\",\r\n            \"name\": \"Postman Test\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/organizations/{{organisation_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"organizations",
+								"{{organisation_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let today = require('moment');",
+							"let tomorrow = today().add(1, 'days')",
+							"pm.collectionVariables.set('today', today());",
+							"pm.collectionVariables.set('tomorrow', tomorrow);"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Models",
+			"item": [
+				{
+					"name": "Создание модели курса (по компетенциям)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('organisator_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for organisator failed\").to.have.status(403)\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for tester\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('tester_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for tester failed\").to.have.status(403)\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"required\": [\r",
+									"        \"_id\",\r",
+									"        \"common_params\",\r",
+									"        \"display_results\",\r",
+									"        \"fields_display\",\r",
+									"        \"levels\",\r",
+									"        \"stages\",\r",
+									"        \"stage\",\r",
+									"        \"test_options\",\r",
+									"        \"created_at\",\r",
+									"        \"updated_at\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"_id\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"common_params\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"display_results\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"fields_display\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"levels\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"stages\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"stage\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"test_options\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"created_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"updated_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"pm.test(\"Schema is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-models-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "b6cdf840252b82b66be83610845812e504977bb9cf080f72139b9c67b2e31236"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://models-assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://models-assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stage\": \"draft\",\r\n    \"display_results\": \"competency_only\",\r\n    \"stages\": [\r\n        {\r\n            \"name\": \"пппп\",\r\n            \"color\": \"#F39A9A\",\r\n            \"order\": 1\r\n        },\r\n        {\r\n            \"name\": \"fff\",\r\n            \"color\": \"#7D6FE1\",\r\n            \"order\": 2\r\n        },\r\n        {\r\n            \"name\": \"hhhh\",\r\n            \"color\": \"#7BE7C7\",\r\n            \"order\": 3\r\n        }\r\n    ],\r\n    \"common_params\": {\r\n        \"name\": \"Postman_test_competencies\",\r\n        \"level\": \"expert_level\",\r\n        \"count_of_attempts\": 2,\r\n        \"registration_type\": \"link\",\r\n        \"max_count_of_testers\": 10000,\r\n        \"certificates\": false\r\n    },\r\n    \"fields_display\": {\r\n        \"show_it\": true,\r\n        \"show_docs\": true,\r\n        \"show_description\": true,\r\n        \"show_academic_hours\": true,\r\n        \"show_academic_months\": true,\r\n        \"show_branch_industry\": true\r\n    },\r\n    \"test_options\": {\r\n        \"weight_questions\": [\r\n            {\r\n                \"type\": \"one\",\r\n                \"tag\": \"competency_level\",\r\n                \"count\": 2,\r\n                \"weight\": 1,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            },\r\n            {\r\n                \"type\": \"case\",\r\n                \"tag\": \"competency\",\r\n                \"count\": 2,\r\n                \"weight\": 2,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            },\r\n            {\r\n                \"type\": \"plural\",\r\n                \"tag\": \"competency\",\r\n                \"count\": 2,\r\n                \"weight\": 1,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 10\r\n            },\r\n            {\r\n                \"type\": \"matrix\",\r\n                \"tag\": \"competency\",\r\n                \"count\": 2,\r\n                \"weight\": 2,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            },\r\n            {\r\n                \"type\": \"tree\",\r\n                \"tag\": \"competency\",\r\n                \"count\": 2,\r\n                \"weight\": 2,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            }\r\n        ],\r\n        \"weight_levels\": [\r\n            {\r\n                \"level\": \"normal_level\",\r\n                \"weight\": 1\r\n            },\r\n            {\r\n                \"level\": \"advanced_level\",\r\n                \"weight\": 2\r\n            },\r\n            {\r\n                \"level\": \"expert_level\",\r\n                \"weight\": 3\r\n            }\r\n        ],\r\n        \"output\": \"by_one\",\r\n        \"test_type\": \"competency\"\r\n    },\r\n    \"levels\": [\r\n        {\r\n            \"type\": \"basic_level\",\r\n            \"from\": 0,\r\n            \"to\": 17\r\n        },\r\n        {\r\n            \"type\": \"normal_level\",\r\n            \"from\": 18,\r\n            \"to\": 43\r\n        },\r\n        {\r\n            \"type\": \"advanced_level\",\r\n            \"from\": 44,\r\n            \"to\": 79\r\n        },\r\n        {\r\n            \"type\": \"expert_level\",\r\n            \"from\": 80,\r\n            \"to\": 100\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{Model_service_url}}/api/models/v2",
+							"host": [
+								"{{Model_service_url}}"
+							],
+							"path": [
+								"api",
+								"models",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание модели курса (по сферам)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('organisator_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for organisator failed\").to.have.status(403)\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for tester\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('tester_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for tester failed\").to.have.status(403)\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"required\": [\r",
+									"        \"_id\",\r",
+									"        \"common_params\",\r",
+									"        \"display_results\",\r",
+									"        \"fields_display\",\r",
+									"        \"levels\",\r",
+									"        \"stages\",\r",
+									"        \"stage\",\r",
+									"        \"test_options\",\r",
+									"        \"created_at\",\r",
+									"        \"updated_at\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"_id\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"common_params\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"display_results\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"fields_display\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"levels\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"stages\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"stage\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"test_options\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"created_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"updated_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"pm.test(\"Schema is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-models-assmnt.unionetest.ru",
+								"disabled": true
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+								"disabled": true
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://models-assessment.unionetest.ru",
+								"disabled": true
+							},
+							{
+								"key": "referer",
+								"value": "https://models-assessment.unionetest.ru/",
+								"disabled": true
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\"",
+								"disabled": true
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0",
+								"disabled": true
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\"",
+								"disabled": true
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty",
+								"disabled": true
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors",
+								"disabled": true
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site",
+								"disabled": true
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stage\": \"draft\",\r\n    \"display_results\": \"sphere_only\",\r\n    \"stages\": [\r\n        {\r\n            \"name\": \"Postman_test\",\r\n            \"color\": \"#CAD753\",\r\n            \"order\": 1\r\n        }\r\n    ],\r\n    \"common_params\": {\r\n        \"name\": \"Postman_test\",\r\n        \"level\": \"advanced_level\",\r\n        \"count_of_attempts\": 2,\r\n        \"registration_type\": \"link\",\r\n        \"max_count_of_testers\": 10000,\r\n        \"certificates\": true\r\n    },\r\n    \"fields_display\": {\r\n        \"show_it\": true,\r\n        \"show_docs\": true,\r\n        \"show_description\": true,\r\n        \"show_academic_hours\": true,\r\n        \"show_academic_months\": true,\r\n        \"show_branch_industry\": true\r\n    },\r\n    \"test_options\": {\r\n        \"weight_questions\": [\r\n            {\r\n                \"type\": \"one\",\r\n                \"tag\": \"sphere\",\r\n                \"count\": 2,\r\n                \"weight\": 1,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            },\r\n            {\r\n                \"type\": \"case\",\r\n                \"tag\": \"sphere\",\r\n                \"count\": 2,\r\n                \"weight\": 2,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            },\r\n            {\r\n                \"type\": \"plural\",\r\n                \"tag\": \"sphere\",\r\n                \"count\": 2,\r\n                \"weight\": 1,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 10\r\n            },\r\n            {\r\n                \"type\": \"matrix\",\r\n                \"tag\": \"sphere\",\r\n                \"count\": 2,\r\n                \"weight\": 2,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            },\r\n            {\r\n                \"type\": \"tree\",\r\n                \"tag\": \"sphere\",\r\n                \"count\": 2,\r\n                \"weight\": 2,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            }\r\n        ],\r\n        \"weight_levels\": [\r\n            {\r\n                \"level\": \"normal_level\",\r\n                \"weight\": 1\r\n            },\r\n            {\r\n                \"level\": \"advanced_level\",\r\n                \"weight\": 2\r\n            },\r\n            {\r\n                \"level\": \"expert_level\",\r\n                \"weight\": 3\r\n            }\r\n        ],\r\n        \"output\": \"by_one\",\r\n        \"test_type\": \"sphere\"\r\n    },\r\n    \"levels\": [\r\n        {\r\n            \"type\": \"basic_level\",\r\n            \"from\": 0,\r\n            \"to\": 17\r\n        },\r\n        {\r\n            \"type\": \"normal_level\",\r\n            \"from\": 18,\r\n            \"to\": 43\r\n        },\r\n        {\r\n            \"type\": \"advanced_level\",\r\n            \"from\": 44,\r\n            \"to\": 100\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Model_service_url}}/api/models/v2",
+							"host": [
+								"{{Model_service_url}}"
+							],
+							"path": [
+								"api",
+								"models",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание модели курса (по сферам и компетенциям)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('organisator_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for organisator failed\").to.have.status(403)\r",
+									"    });\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Permission test for tester\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('tester_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for organisator failed\").to.have.status(403)\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"required\": [\r",
+									"        \"_id\",\r",
+									"        \"common_params\",\r",
+									"        \"display_results\",\r",
+									"        \"fields_display\",\r",
+									"        \"levels\",\r",
+									"        \"stages\",\r",
+									"        \"stage\",\r",
+									"        \"test_options\",\r",
+									"        \"created_at\",\r",
+									"        \"updated_at\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"_id\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"common_params\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"display_results\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"fields_display\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"levels\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"stages\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"stage\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"test_options\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"created_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"updated_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"pm.test(\"Schema is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-models-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://models-assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://models-assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stage\": \"draft\",\r\n    \"display_results\": \"competency_sphere\",\r\n    \"stages\": [\r\n        {\r\n            \"name\": \"111\",\r\n            \"color\": \"#0071CE\",\r\n            \"order\": 1\r\n        },\r\n        {\r\n            \"name\": \"222\",\r\n            \"color\": \"#07B4CF\",\r\n            \"order\": 2\r\n        },\r\n        {\r\n            \"name\": \"333\",\r\n            \"color\": \"#CAD753\",\r\n            \"order\": 3\r\n        }\r\n    ],\r\n    \"common_params\": {\r\n        \"name\": \"Postman_test\",\r\n        \"level\": \"expert_level\",\r\n        \"count_of_attempts\": 2,\r\n        \"registration_type\": \"link\",\r\n        \"max_count_of_testers\": 10000,\r\n        \"certificates\": true\r\n    },\r\n    \"fields_display\": {\r\n        \"show_it\": true,\r\n        \"show_docs\": true,\r\n        \"show_description\": true,\r\n        \"show_academic_hours\": true,\r\n        \"show_academic_months\": true,\r\n        \"show_branch_industry\": true\r\n    },\r\n    \"test_options\": {\r\n        \"weight_questions\": [\r\n            {\r\n                \"type\": \"one\",\r\n                \"tag\": \"competency_level\",\r\n                \"count\": 2,\r\n                \"weight\": 1,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            },\r\n            {\r\n                \"type\": \"case\",\r\n                \"tag\": \"competency\",\r\n                \"count\": 2,\r\n                \"weight\": 2,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            },\r\n            {\r\n                \"type\": \"plural\",\r\n                \"tag\": \"competency\",\r\n                \"count\": 2,\r\n                \"weight\": 1,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 10\r\n            },\r\n            {\r\n                \"type\": \"matrix\",\r\n                \"tag\": \"competency\",\r\n                \"count\": 2,\r\n                \"weight\": 2,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            },\r\n            {\r\n                \"type\": \"tree\",\r\n                \"tag\": \"competency\",\r\n                \"count\": 2,\r\n                \"weight\": 2,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 2\r\n            }\r\n        ],\r\n        \"weight_levels\": [\r\n            {\r\n                \"level\": \"normal_level\",\r\n                \"weight\": 1\r\n            },\r\n            {\r\n                \"level\": \"advanced_level\",\r\n                \"weight\": 2\r\n            },\r\n            {\r\n                \"level\": \"expert_level\",\r\n                \"weight\": 3\r\n            }\r\n        ],\r\n        \"output\": \"by_one\",\r\n        \"test_type\": \"competency\"\r\n    },\r\n    \"levels\": [\r\n        {\r\n            \"type\": \"basic_level\",\r\n            \"from\": 0,\r\n            \"to\": 17\r\n        },\r\n        {\r\n            \"type\": \"normal_level\",\r\n            \"from\": 18,\r\n            \"to\": 43\r\n        },\r\n        {\r\n            \"type\": \"advanced_level\",\r\n            \"from\": 44,\r\n            \"to\": 79\r\n        },\r\n        {\r\n            \"type\": \"expert_level\",\r\n            \"from\": 80,\r\n            \"to\": 100\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{Model_service_url}}/api/models/v2",
+							"host": [
+								"{{Model_service_url}}"
+							],
+							"path": [
+								"api",
+								"models",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр вкладки Модели курсов",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('organisator_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for organisator failed\").to.have.status(403)\r",
+									"    });\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Permission test for tester\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('tester_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for organisator failed\").to.have.status(403)\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"ajv = new Ajv({logger: console}),\r",
+									"schema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"required\": [\r",
+									"        \"items\",\r",
+									"        \"total\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"items\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"total\": {\r",
+									"            \"type\": \"integer\"\r",
+									"        }\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{Model_service_url}}/api/models?page=1&limit=20&stage=published&sort=updated_at",
+							"host": [
+								"{{Model_service_url}}"
+							],
+							"path": [
+								"api",
+								"models"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "stage",
+									"value": "published"
+								},
+								{
+									"key": "sort",
+									"value": "updated_at"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление модели курса",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('organisator_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for organisator failed\").to.have.status(403)\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for tester\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('tester_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for tester failed\").to.have.status(403)\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"ajv = new Ajv({logger: console}),\r",
+									"schema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"required\": [\r",
+									"        \"_id\",\r",
+									"        \"common_params\",\r",
+									"        \"fields_display\",\r",
+									"        \"test_options\",\r",
+									"        \"levels\",\r",
+									"        \"stages\",\r",
+									"        \"display_results\",\r",
+									"        \"stage\",\r",
+									"        \"created_at\",\r",
+									"        \"updated_at\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"_id\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"common_params\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"display_results\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"fields_display\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"levels\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"stages\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"stage\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"test_options\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"created_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"updated_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"pm.test(\"Schema is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-models-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "b6cdf840252b82b66be83610845812e504977bb9cf080f72139b9c67b2e31236"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://models-assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://models-assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"116\", \"Not)A;Brand\";v=\"24\", \"Google Chrome\";v=\"116\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"650048d3ea51f7a444ec9d74\",\r\n    \"common_params\": {\r\n        \"certificates\": false,\r\n        \"name\": \"Postman_test\",\r\n        \"level\": \"normal_level\",\r\n        \"count_of_attempts\": 2,\r\n        \"registration_type\": \"link\",\r\n        \"max_count_of_testers\": 10000\r\n    },\r\n    \"display_results\": \"competency_only\",\r\n    \"fields_display\": {\r\n        \"show_it\": false,\r\n        \"show_docs\": false,\r\n        \"show_description\": false,\r\n        \"show_academic_hours\": true,\r\n        \"show_academic_months\": true,\r\n        \"show_branch_industry\": false\r\n    },\r\n    \"levels\": [\r\n        {\r\n            \"type\": \"basic_level\",\r\n            \"from\": 0,\r\n            \"to\": 17\r\n        },\r\n        {\r\n            \"type\": \"normal_level\",\r\n            \"from\": 18,\r\n            \"to\": 100\r\n        }\r\n    ],\r\n    \"stages\": [\r\n        {\r\n            \"name\": \"Postman_test\",\r\n            \"color\": \"#E26C3C\",\r\n            \"order\": 1\r\n        }\r\n    ],\r\n    \"stage\": \"draft\",\r\n    \"test_options\": {\r\n        \"weight_questions\": [\r\n            {\r\n                \"type\": \"one\",\r\n                \"tag\": \"competency_level\",\r\n                \"count\": 1,\r\n                \"weight\": 1,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 10\r\n            }\r\n        ],\r\n        \"weight_levels\": [\r\n            {\r\n                \"level\": \"normal_level\",\r\n                \"weight\": 1\r\n            },\r\n            {\r\n                \"level\": \"advanced_level\",\r\n                \"weight\": 2\r\n            },\r\n            {\r\n                \"level\": \"expert_level\",\r\n                \"weight\": 3\r\n            }\r\n        ],\r\n        \"output\": \"by_one\",\r\n        \"test_type\": \"competency\"\r\n    },\r\n    \"created_at\": \"2023-09-12T11:17:39.469Z\",\r\n    \"updated_at\": \"2023-09-12T11:17:39.469Z\"\r\n}"
+						},
+						"url": {
+							"raw": "{{Model_service_url}}/api/models/v2/update-by-id?id={{model_id}}",
+							"host": [
+								"{{Model_service_url}}"
+							],
+							"path": [
+								"api",
+								"models",
+								"v2",
+								"update-by-id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{model_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Публикация модели курса",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('organisator_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for organisator failed\").to.have.status(403)\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for tester\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('tester_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for organisator failed\").to.have.status(403)\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"required\": [\r",
+									"        \"_id\",\r",
+									"        \"common_params\",\r",
+									"        \"display_results\",\r",
+									"        \"fields_display\",\r",
+									"        \"levels\",\r",
+									"        \"stages\",\r",
+									"        \"stage\",\r",
+									"        \"test_options\",\r",
+									"        \"created_at\",\r",
+									"        \"updated_at\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"_id\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"common_params\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"display_results\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"fields_display\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"levels\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"stages\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"stage\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"test_options\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"created_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"updated_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"pm.test(\"Schema is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Publishing model for spheres\", () =>{\r",
+									"    let thisRequest = {\r",
+									"        url: `${pm.collectionVariables.get('Model_service_url')}/api/models/publish-by-id?id=${pm.collectionVariables.get('model_id_sphere')}`,\r",
+									"        method: 'PUT',\r",
+									"        header: {\r",
+									"        'accept': 'application/json',\r",
+									"        'Authorization': `${pm.collectionVariables.get('content_manager_token')}`\r",
+									"        }\r",
+									"    };\r",
+									"    pm.sendRequest(thisRequest, (error, response) => {\r",
+									"        pm.expect(response, \"Model for spheres has not been published\").to.have.status(200);\r",
+									"    });\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Publishing model for spheres and competencies\", () =>{\r",
+									"    let thisRequest = {\r",
+									"        url: `${pm.collectionVariables.get('Model_service_url')}/api/models/publish-by-id?id=${pm.collectionVariables.get('model_id_sphere_competency')}`,\r",
+									"        method: 'PUT',\r",
+									"        header: {\r",
+									"        'accept': 'application/json',\r",
+									"        'Authorization': `${pm.collectionVariables.get('content_manager_token')}`\r",
+									"        }\r",
+									"    };\r",
+									"    pm.sendRequest(thisRequest, (error, response) => {\r",
+									"        pm.expect(response, \"Model for spheres and competencies has not been published\").to.have.status(200);\r",
+									"    });\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{Model_service_url}}/api/models/publish-by-id?id={{model_id}}",
+							"host": [
+								"{{Model_service_url}}"
+							],
+							"path": [
+								"api",
+								"models",
+								"publish-by-id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{model_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Открытие модели курса из списка",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('organisator_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for organisator failed\").to.have.status(200)\r",
+									"    });\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Permission test for tester\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('tester_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for tester failed\").to.have.status(200)\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"required\": [\r",
+									"        \"_id\",\r",
+									"        \"common_params\",\r",
+									"        \"display_results\",\r",
+									"        \"fields_display\",\r",
+									"        \"levels\",\r",
+									"        \"stages\",\r",
+									"        \"stage\",\r",
+									"        \"test_options\",\r",
+									"        \"created_at\",\r",
+									"        \"updated_at\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"_id\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"common_params\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"display_results\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"fields_display\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"levels\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"stages\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"stage\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"test_options\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"created_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"updated_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"pm.test(\"Schema is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{Model_service_url}}/api/models/get-by-id?id={{model_id}}",
+							"host": [
+								"{{Model_service_url}}"
+							],
+							"path": [
+								"api",
+								"models",
+								"get-by-id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "{{model_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "today",
+			"value": ""
+		},
+		{
+			"key": "tomorrow",
+			"value": ""
+		},
+		{
+			"key": "organisation_id",
+			"value": ""
+		},
+		{
+			"key": "model_id",
+			"value": ""
+		},
+		{
+			"key": "model",
+			"value": ""
+		},
+		{
+			"key": "model_id_sphere",
+			"value": ""
+		},
+		{
+			"key": "model_sphere",
+			"value": ""
+		},
+		{
+			"key": "Model_service_url",
+			"value": "http://10.62.10.50:9012",
+			"type": "string"
+		},
+		{
+			"key": "model_id_sphere_competency",
+			"value": ""
+		},
+		{
+			"key": "model_sphere_competency",
+			"value": ""
+		}
+	]
+}

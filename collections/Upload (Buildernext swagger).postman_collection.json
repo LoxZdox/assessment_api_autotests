@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "4681a45e-abd7-4448-aa33-6a5ba791d9d8",
+		"name": "Upload (Buildernext swagger)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29613235"
+	},
+	"item": [
+		{
+			"name": "Upload",
+			"item": [
+				{
+					"name": "Загрузка файлов.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('organisator_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response, \"Permission test for organisator failed\").to.have.status(201);\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for tester\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('tester_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response, \"Permission test for tester failed\").to.have.status(201);\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500 ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/upload/files",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"upload",
+								"files"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+	]
+}

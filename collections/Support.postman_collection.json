@@ -1,0 +1,1617 @@
+{
+	"info": {
+		"_postman_id": "875d4b1b-1e3c-4896-b7a7-4c75e3021cf9",
+		"name": "Support",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29613235"
+	},
+	"item": [
+		{
+			"name": "Flow and getting neccessary variables Copy",
+			"item": [
+				{
+					"name": "Получить id контент- менеджера",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('content_manager_id', pm.response.json().values[0].id);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "auth.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "content-type",
+								"value": "text/plain;charset=UTF-8"
+							},
+							{
+								"key": "origin",
+								"value": "https://oneid.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://oneid.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"{{content_manager_token}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://auth.unionetest.ru/api/v1/getuserdata",
+							"protocol": "https",
+							"host": [
+								"auth",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v1",
+								"getuserdata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить id юзер- орга",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('organisator_id', pm.response.json().values[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "auth.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "content-type",
+								"value": "text/plain;charset=UTF-8"
+							},
+							{
+								"key": "origin",
+								"value": "https://oneid.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://oneid.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"{{organisator_token}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://auth.unionetest.ru/api/v1/getuserdata",
+							"protocol": "https",
+							"host": [
+								"auth",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v1",
+								"getuserdata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить id тестируемого",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('tester_id', pm.response.json().values[0].id);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "auth.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "content-type",
+								"value": "text/plain;charset=UTF-8"
+							},
+							{
+								"key": "origin",
+								"value": "https://oneid.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://oneid.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"{{tester_token}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://auth.unionetest.ru/api/v1/getuserdata",
+							"protocol": "https",
+							"host": [
+								"auth",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v1",
+								"getuserdata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание организации",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('organisation_id', pm.response.json().id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"address\": \"gidropony1905@gmail.com\",\r\n  \"name\": \"Postman_test\",\r\n  \"desc\": \"Used for autotest, this should be deleted by now probably\",\r\n  \"email\": \"gidropony1905@gmail.com\",\r\n  \"phone\": \"9625568900\",\r\n  \"models\": [\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/organization",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"organization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание модели курса",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('model_id', pm.response.json()._id);\r",
+									"pm.collectionVariables.set('model', JSON.stringify(pm.response.json()));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-models-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://models-assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://models-assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stage\": \"draft\",\r\n    \"display_results\": \"competency_only\",\r\n    \"stages\": [\r\n        {\r\n            \"name\": \"Postman_test\",\r\n            \"color\": \"#E26C3C\",\r\n            \"order\": 1\r\n        }\r\n    ],\r\n    \"common_params\": {\r\n        \"name\": \"Postman_test\",\r\n        \"level\": \"normal_level\",\r\n        \"count_of_attempts\": 2,\r\n        \"registration_type\": \"link\",\r\n        \"max_count_of_testers\": 10000,\r\n        \"certificates\": false\r\n    },\r\n    \"fields_display\": {\r\n        \"show_it\": false,\r\n        \"show_docs\": false,\r\n        \"show_description\": false,\r\n        \"show_academic_hours\": true,\r\n        \"show_academic_months\": true,\r\n        \"show_branch_industry\": false\r\n    },\r\n    \"test_options\": {\r\n        \"weight_questions\": [\r\n            {\r\n                \"type\": \"one\",\r\n                \"tag\": \"competency_level\",\r\n                \"count\": 1,\r\n                \"weight\": 1,\r\n                \"is_enabled\": true,\r\n                \"time_for_question\": 10\r\n            }\r\n        ],\r\n        \"weight_levels\": [\r\n            {\r\n                \"level\": \"normal_level\",\r\n                \"weight\": 1\r\n            },\r\n            {\r\n                \"level\": \"advanced_level\",\r\n                \"weight\": 2\r\n            },\r\n            {\r\n                \"level\": \"expert_level\",\r\n                \"weight\": 3\r\n            }\r\n        ],\r\n        \"output\": \"by_one\",\r\n        \"test_type\": \"competency\"\r\n    },\r\n    \"levels\": [\r\n        {\r\n            \"type\": \"basic_level\",\r\n            \"from\": 0,\r\n            \"to\": 17\r\n        },\r\n        {\r\n            \"type\": \"normal_level\",\r\n            \"from\": 18,\r\n            \"to\": 100\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api-models-assmnt.unionetest.ru/api/models/v2",
+							"protocol": "https",
+							"host": [
+								"api-models-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"models",
+								"v2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Публикация модели курса",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-models-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://models-assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://models-assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{model}}"
+						},
+						"url": {
+							"raw": "https://api-models-assmnt.unionetest.ru/api/models/publish-by-id?id={{model_id}}",
+							"protocol": "https",
+							"host": [
+								"api-models-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"models",
+								"publish-by-id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{model_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавление модели курса в организацию",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"models\": [\r\n        {\r\n            \"_id\": \"{{model_id}}\",\r\n            \"name\": \"Postman Test\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/organizations/{{organisation_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"organizations",
+								"{{organisation_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание блока компетенций",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('competency_block_id', pm.response.json()._id);\r",
+									"pm.collectionVariables.set('competency_block', JSON.stringify(pm.response.json()));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/competency",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"competency"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить id составляющих блока компетенций",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('sphere_id', pm.response.json()[\"spheres\"][0][\"_id\"]);\r",
+									"pm.collectionVariables.set('competency_id', pm.response.json()[\"spheres\"][0][\"competencies\"][0][\"_id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/competency/{{competency_block_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"competency",
+								"{{competency_block_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Переименовать блок компетенций",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\":\"Postman_test\"}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/block/update/{{competency_block_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"block",
+								"update",
+								"{{competency_block_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Переименовать сферу компетенций",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\":\"Postman_test\",\"block_id\": \"{{competency_block_id}}\"}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/sphera/update/{{sphere_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"sphera",
+								"update",
+								"{{sphere_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Переименовать компетенцию",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\":\"Postman_test\"}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/competency/update/{{competency_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"competency",
+								"update",
+								"{{competency_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Переименовать уровни компетенции",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"basic_level\": {\r\n        \"description\": \"Postman_test\",\r\n        \"question_ids\": []\r\n    },\r\n    \"normal_level\": {\r\n        \"description\": \"Postman_test\",\r\n        \"question_ids\": []\r\n    },\r\n    \"advanced_level\": {\r\n        \"description\": \"Postman_test\",\r\n        \"question_ids\": []\r\n    },\r\n    \"expert_level\": {\r\n        \"description\": \"Postman_test\",\r\n        \"question_ids\": []\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/competency/update/{{competency_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"competency",
+								"update",
+								"{{competency_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Опубликовать блок компетенций",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"competencyBlockId\":\"{{competency_block_id}}\"}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/competency/publish/{{competency_block_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"competency",
+								"publish",
+								"{{competency_block_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создать курс",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('course_id', pm.response.json()._id);\r",
+									"pm.collectionVariables.set('course_stage_id', pm.response.json().stages[0]._id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "{{organisator_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Postman_test\",\r\n    \"academic\": {\r\n        \"hours\": 1,\r\n        \"month\": 1\r\n    },\r\n    \"model_id\": \"{{model_id}}\",\r\n    \"testing\": [\r\n        {\r\n            \"_id\": \"{{competency_id}}\",\r\n            \"level\": \"normal_level\"\r\n        }\r\n    ],\r\n    \"stages\": [\r\n        {\r\n            \"order\": 1,\r\n            \"start_date\": \"{{today}}\",\r\n            \"end_date\": \"{{tomorrow}}\",\r\n            \"is_procto\": false,\r\n            \"timezone\": 3\r\n        }\r\n    ],\r\n    \"stage\": \"moderate\",\r\n    \"author_id\": \"{{organisator_id}}\",\r\n    \"organization_id\": \"{{organisation_id}}\"\r\n}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/course",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Опубликовать курс",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-builderneo-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{content_manager_token}}"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "origin",
+								"value": "https://moderate-assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://moderate-assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"course_id\": \"{{course_id}}\",\r\n    \"stage\": \"published\"\r\n}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/moderate/course/update",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"moderate",
+								"course",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Привязать тестируемого к курсу",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru,en;q=0.9,en-GB;q=0.8,en-US;q=0.7"
+							},
+							{
+								"key": "authorization",
+								"value": "{{tester_token}}"
+							},
+							{
+								"key": "origin",
+								"value": "https://testing-assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://testing-assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not/A)Brand\";v=\"99\", \"Microsoft Edge\";v=\"115\", \"Chromium\";v=\"115\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 Edg/115.0.1901.183"
+							}
+						],
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/course/{{course_id}}/assign-tester",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"course",
+								"{{course_id}}",
+								"assign-tester"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let today = require('moment');",
+							"let tomorrow = today().add(1, 'days')",
+							"pm.collectionVariables.set('today', today());",
+							"pm.collectionVariables.set('tomorrow', tomorrow);"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Support",
+			"item": [
+				{
+					"name": " Получение организации пользователя",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{tester_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v1/support/organizations?user_id={{tester_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v1",
+								"support",
+								"organizations"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "{{tester_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "today",
+			"value": ""
+		},
+		{
+			"key": "tomorrow",
+			"value": ""
+		},
+		{
+			"key": "content_manager_id",
+			"value": ""
+		},
+		{
+			"key": "organisator_id",
+			"value": ""
+		},
+		{
+			"key": "tester_id",
+			"value": ""
+		},
+		{
+			"key": "organisation_id",
+			"value": ""
+		},
+		{
+			"key": "model_id",
+			"value": ""
+		},
+		{
+			"key": "model",
+			"value": ""
+		},
+		{
+			"key": "competency_block_id",
+			"value": ""
+		},
+		{
+			"key": "competency_block",
+			"value": ""
+		},
+		{
+			"key": "sphere_id",
+			"value": ""
+		},
+		{
+			"key": "competency_id",
+			"value": ""
+		},
+		{
+			"key": "course_id",
+			"value": ""
+		},
+		{
+			"key": "course_stage_id",
+			"value": ""
+		}
+	]
+}

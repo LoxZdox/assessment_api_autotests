@@ -1,0 +1,1038 @@
+{
+	"info": {
+		"_postman_id": "c9580ff8-eedc-4fa9-8fcb-115955da199e",
+		"name": "Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29613235"
+	},
+	"item": [
+		{
+			"name": "Flow and getting neccessary variables",
+			"item": [
+				{
+					"name": "Получить id контент- менеджера",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('content_manager_id', pm.response.json().values[0].id);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "auth.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "content-type",
+								"value": "text/plain;charset=UTF-8"
+							},
+							{
+								"key": "origin",
+								"value": "https://oneid.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://oneid.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"{{content_manager_token}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://auth.unionetest.ru/api/v1/getuserdata",
+							"protocol": "https",
+							"host": [
+								"auth",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v1",
+								"getuserdata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить id юзер- орга",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('organisator_id', pm.response.json().values[0].id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "auth.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "content-type",
+								"value": "text/plain;charset=UTF-8"
+							},
+							{
+								"key": "origin",
+								"value": "https://oneid.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://oneid.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"{{organisator_token}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://auth.unionetest.ru/api/v1/getuserdata",
+							"protocol": "https",
+							"host": [
+								"auth",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v1",
+								"getuserdata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить id тестируемого",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set('tester_id', pm.response.json().values[0].id);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "auth.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+							},
+							{
+								"key": "content-type",
+								"value": "text/plain;charset=UTF-8"
+							},
+							{
+								"key": "origin",
+								"value": "https://oneid.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://oneid.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"Google Chrome\";v=\"114\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"{{tester_token}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://auth.unionetest.ru/api/v1/getuserdata",
+							"protocol": "https",
+							"host": [
+								"auth",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v1",
+								"getuserdata"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"let today = require('moment');",
+							"let tomorrow = today().add(1, 'days')",
+							"pm.collectionVariables.set('today', today());",
+							"pm.collectionVariables.set('tomorrow', tomorrow);"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": " Авторизация пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", () => {\r",
+									"    pm.expect(pm.response.code, \"Permission test for content-manager\").to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('organisator_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.code, \"Permission test for organisator\").to.be.oneOf([200, 201]);\r",
+									"    });\r",
+									"});\r",
+									" \r",
+									"pm.test(\"Permission test for tester\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('tester_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.code, \"Permission test for tester\").to.be.oneOf([200, 201]);\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"default\": {},\r",
+									"    \"required\": [\r",
+									"        \"id\",\r",
+									"        \"role\",\r",
+									"        \"is_procto\",\r",
+									"        \"oneid\",\r",
+									"        \"courses\",\r",
+									"        \"proctoring_image\",\r",
+									"        \"created_at\",\r",
+									"        \"updated_at\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\r",
+									"            \"type\": \"string\"\r",
+									"            },\r",
+									"        \"role\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"is_procto\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"oneid\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"courses\": {\r",
+									"            \"type\": \"array\"\r",
+									"        },\r",
+									"        \"proctoring_image\": {\r",
+									"            \"type\": \"boolean\"\r",
+									"        },\r",
+									"        \"created_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"updated_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        }\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/user/login",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Получение пользователя по id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", () => {\r",
+									"    pm.expect(pm.response.code, \"Permission test for content-manager\").to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('organisator_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.code, \"Permission test for organisator\").to.be.oneOf([200, 201]);\r",
+									"    });\r",
+									"});\r",
+									" \r",
+									"pm.test(\"Permission test for tester\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('tester_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.code, \"Permission test for tester\").to.be.oneOf([200, 201]);\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"default\": {},\r",
+									"    \"required\": [\r",
+									"        \"id\",\r",
+									"        \"role\",\r",
+									"        \"oneid\",\r",
+									"        \"proctoring_image\",\r",
+									"        \"agreements\",\r",
+									"        \"created_at\",\r",
+									"        \"updated_at\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"id\": {\r",
+									"            \"type\": \"string\"\r",
+									"            },\r",
+									"        \"role\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"oneid\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"proctoring_image\": {\r",
+									"            \"type\": \"boolean\"\r",
+									"        },\r",
+									"        \"agreements\": {\r",
+									"            \"type\": \"object\"\r",
+									"        },\r",
+									"        \"created_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"updated_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        }\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/user/{{content_manager_id}}",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"user",
+								"{{content_manager_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновления статусов соглашения",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", () => {\r",
+									"    pm.expect(pm.response.code, \"Permission test for content-manager\").to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('organisator_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.code, \"Permission test for organisator\").to.be.oneOf([200, 201]);\r",
+									"    });\r",
+									"});\r",
+									" \r",
+									"pm.test(\"Permission test for tester\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('tester_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.code, \"Permission test for tester\").to.be.oneOf([200, 201]);\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200 ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{tester_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"agreements\": {\r\n    \"resume\": true,\r\n    \"qr_certs\": \"agreed\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/user/features",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"user",
+								"features"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Поиск пользователей",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", () => {\r",
+									"    pm.expect(pm.response.code, \"Permission test for content-manager\").to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('organisator_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.code, \"Permission test for organisator\").to.be.oneOf([200, 201]);\r",
+									"    });\r",
+									"});\r",
+									" \r",
+									"pm.test(\"Permission test for tester\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('tester_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.code, \"Permission test for tester\").to.be.oneOf([200, 201]);\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"$id\": \"http://example.com/example.json\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"default\": {},\r",
+									"    \"required\": [\r",
+									"        \"items\",\r",
+									"        \"totalCount\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"items\": {\r",
+									"            \"type\": \"array\",\r",
+									"            },\r",
+									"        \"totalCount\": {\r",
+									"            \"type\": \"integer\"\r",
+									"        }\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/users/search",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"users",
+								"search"
+							],
+							"query": [
+								{
+									"key": "role",
+									"value": "tester",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Поиск пользователей в OneId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", () => {\r",
+									"    pm.expect(pm.response.code, \"Permission test for content-manager\").to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('organisator_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.code, \"Permission test for organisator\").to.be.oneOf([200, 201]);\r",
+									"    });\r",
+									"});\r",
+									" \r",
+									"pm.test(\"Permission test for tester\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('tester_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response.code, \"Permission test for tester\").to.be.oneOf([200, 201]);\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"$id\": \"http://example.com/example.json\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"default\": {},\r",
+									"    \"required\": [\r",
+									"        \"items\",\r",
+									"        \"totalCount\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"items\": {\r",
+									"            \"type\": \"array\",\r",
+									"            },\r",
+									"        \"totalCount\": {\r",
+									"            \"type\": \"integer\"\r",
+									"        }\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/oneid-users/search",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"oneid-users",
+								"search"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Просмотр раздела прокторинг",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for tester\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									" \r",
+									"pm.test(\"Permission test for content-manager\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('content_manager_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response, \"Permission test for content-manager failed\").to.have.status(200);\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", () => {\r",
+									"    pm.request.headers.upsert({\r",
+									"        'key': 'Authorization',\r",
+									"        'value': `${pm.collectionVariables.get('organisator_token')}`\r",
+									"        });\r",
+									"    pm.sendRequest(pm.request, (error, response) => {\r",
+									"        pm.expect(response, \"Permission test for organisator failed\").to.have.status(200);\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"        \"type\": \"object\",\r",
+									"        \"required\": [\r",
+									"            \"items\",\r",
+									"            \"totalCount\"\r",
+									"        ],\r",
+									"        \"additionalProperties\": false,\r",
+									"        \"properties\": {\r",
+									"            \"items\": {\r",
+									"                \"type\": \"array\"\r",
+									"            },\r",
+									"            \"totalCount\": {\r",
+									"                \"type\": \"integer\"\r",
+									"            }\r",
+									"        }\r",
+									"    }\r",
+									"\r",
+									"pm.test(\"Schema test\", function () {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"})\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authority",
+								"value": "api-buildernext-assmnt.unionetest.ru"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru,en;q=0.9"
+							},
+							{
+								"key": "authorization",
+								"value": "{{tester_token}}"
+							},
+							{
+								"key": "origin",
+								"value": "https://testing-assessment.unionetest.ru"
+							},
+							{
+								"key": "referer",
+								"value": "https://testing-assessment.unionetest.ru/"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"114\", \"YaBrowser\";v=\"23\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"Windows\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-site"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 YaBrowser/23.7.5.704 Yowser/2.5 Safari/537.36"
+							}
+						],
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/users/procto-results?page=1&limit=10",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"users",
+								"procto-results"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "today",
+			"value": ""
+		},
+		{
+			"key": "tomorrow",
+			"value": ""
+		},
+		{
+			"key": "content_manager_id",
+			"value": ""
+		},
+		{
+			"key": "organisator_id",
+			"value": ""
+		},
+		{
+			"key": "tester_id",
+			"value": ""
+		}
+	]
+}

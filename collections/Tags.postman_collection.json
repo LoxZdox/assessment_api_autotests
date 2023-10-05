@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "8fc18be4-db73-4a86-b881-e66c41ad01b1",
+		"name": "Tags",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29613235"
+	},
+	"item": [
+		{
+			"name": "Flow and getting neccessary variables",
+			"item": [
+				{
+					"name": "Создание тега",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"postman_test\"\r\n}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/tag",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"tag"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tags",
+			"item": [
+				{
+					"name": "Создание тега",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('organisator_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for organisator failed\").to.have.status(403)\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for tester\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('tester_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for tester failed\").to.have.status(403)\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"ajv = new Ajv({logger: console}),\r",
+									"schema = {\r",
+									"    \"type\": \"object\",\r",
+									"    \"required\": [\r",
+									"        \"_id\",\r",
+									"        \"title\",\r",
+									"        \"created_at\",\r",
+									"        \"updated_at\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"_id\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"title\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"created_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        },\r",
+									"        \"updated_at\": {\r",
+									"            \"type\": \"string\"\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"pm.test(\"Schema is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"postman_test\"\r\n}"
+						},
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/tag",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Получение списка тегов",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Permission test for content-manager\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for organisator\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('organisator_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for organisator failed\").to.have.status(200)\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Permission test for tester\", function () {\r",
+									"    pm.request.upsertHeader({\r",
+									"        'key': 'Authorization',\r",
+									"        'value':`${pm.collectionVariables.get('tester_token')}`\r",
+									"    });\r",
+									"    pm.sendRequest(pm.request, (err, response) => {\r",
+									"        pm.expect(response, \"Permission test for tester failed\").to.have.status(403)\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json()\r",
+									"var Ajv = require('ajv'),\r",
+									"    ajv = new Ajv({logger: console}),\r",
+									"    schema = {\r",
+									"    \"$id\": \"http://example.com/example.json\",\r",
+									"    \"type\": \"object\",\r",
+									"    \"default\": {},\r",
+									"    \"required\": [\r",
+									"        \"items\",\r",
+									"        \"totalCount\"\r",
+									"    ],\r",
+									"    \"additionalProperties\": false,\r",
+									"    \"properties\": {\r",
+									"        \"items\": {\r",
+									"            \"type\": \"array\",\r",
+									"            },\r",
+									"        \"totalCount\": {\r",
+									"            \"type\": \"integer\"\r",
+									"        }\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema is valid\", () => {\r",
+									"    pm.expect(ajv.validate(schema, jsonData)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{content_manager_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-buildernext-assmnt.unionetest.ru/api/v3/tags?page=1&limit=10&title=postman_test",
+							"protocol": "https",
+							"host": [
+								"api-buildernext-assmnt",
+								"unionetest",
+								"ru"
+							],
+							"path": [
+								"api",
+								"v3",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "title",
+									"value": "postman_test"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+	]
+}
